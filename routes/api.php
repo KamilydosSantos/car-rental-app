@@ -8,12 +8,16 @@ use App\Http\Controllers\RentalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/', function () {
+    return response()->json(['Chegamos até aqui!' => 'SIM']);
+});
 
-Route::apiResource('car', [CarController::class]);
-Route::apiResource('brand', [BrandController::class]);
-Route::apiResource('car_model', [CarModelController::class]);
-Route::apiResource('customer', [CustomerController::class]);
-Route::apiResource('rental', [RentalController::class]);
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
+
+Route::apiResource('cars', CarController::class);
+Route::apiResource('brands', BrandController::class);
+Route::apiResource('car_models', CarModelController::class);
+Route::apiResource('customers', CustomerController::class);
+Route::apiResource('rentals', RentalController::class);
