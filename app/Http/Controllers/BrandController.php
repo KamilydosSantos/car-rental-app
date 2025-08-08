@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
-use App\Http\Requests\UpdateBrandRequest;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -38,9 +38,10 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBrandRequest $request, Brand $brand)
+    public function update(Request $request, Brand $brand)
     {
-        //
+        $brand->update($request->all());
+        return $brand;
     }
 
     /**
